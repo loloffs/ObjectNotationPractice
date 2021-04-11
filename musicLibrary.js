@@ -76,22 +76,21 @@ const printPlaylist = function(playlistId) {
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
-  let allPlaylists = Object.keys(library["playlists"]);
+  const allPlaylists = Object.keys(library["playlists"]);
+  const allTracks = Object.keys(library["tracks"]);
   
   if (!allPlaylists.includes(playlistId)) {
     return "Please enter an existing playlist"
   }
 
-  for (const key in library.tracks) {
-    if (key === trackId) {
-      library['playlists'][playlistId]['tracks'].push(trackId);
-      return library['playlists'][playlistId];
-    }
+  if (!allTracks.includes(trackId)) {
+    return "Please enter an existing track"
   }
-  return "Please enter an existing track"
-}
 
-console.log(addTrackToPlaylist('t01', 'p02'));
+  library['playlists'][playlistId]['tracks'].push(trackId);
+  return library['playlists'][playlistId];
+}
+console.log(addTrackToPlaylist('t03', 'p01'));
 
 
 // generates a unique id
@@ -103,8 +102,10 @@ const generateUid = function() {
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-
+  library.tracks
 }
+
+addTrack("Yeet Street", "Luke Oloffs", "Bruh");
 
 
 // adds a playlist to the library
