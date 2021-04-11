@@ -76,15 +76,15 @@ const printPlaylist = function(playlistId) {
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
-  const allPlaylists = Object.keys(library["playlists"]);
   const allTracks = Object.keys(library["tracks"]);
-  
-  if (!allPlaylists.includes(playlistId)) {
-    return "Please enter an existing playlist"
-  }
+  const allPlaylists = Object.keys(library["playlists"]);
 
   if (!allTracks.includes(trackId)) {
     return "Please enter an existing track"
+  }
+
+  if (!allPlaylists.includes(playlistId)) {
+    return "Please enter an existing playlist"
   }
 
   library['playlists'][playlistId]['tracks'].push(trackId);
