@@ -73,23 +73,23 @@ const library = {
 
   addTrack: function(name, artist, album) {
     const ID = this.generateUid();
-    library.tracks[ID] = {
+    this.tracks[ID] = {
       id: ID,
       name,
       artist,
       album
     }
-    console.log(library['tracks'])
+    console.log(this['tracks'])
   },
 
   addPlaylist: function(name) {
     const ID = this.generateUid();
-    library.playlists[ID] = {
+    this.playlists[ID] = {
       id: ID,
       name,
       tracks: []
     }
-    console.log(library['playlists'])
+    console.log(this['playlists'])
   }
 }
 
