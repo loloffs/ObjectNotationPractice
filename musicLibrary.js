@@ -90,7 +90,7 @@ const addTrackToPlaylist = function(trackId, playlistId) {
   library['playlists'][playlistId]['tracks'].push(trackId);
   return library['playlists'][playlistId];
 }
-console.log(addTrackToPlaylist('t03', 'p01'));
+// console.log(addTrackToPlaylist('t03', 'p01'));
 
 
 // generates a unique id
@@ -102,16 +102,29 @@ const generateUid = function() {
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-  library.tracks
+  const ID = generateUid();
+  library.tracks[ID] = {
+    id: ID,
+    name,
+    artist,
+    album
+  }
+  console.log(library['tracks'])
 }
-
-addTrack("Yeet Street", "Luke Oloffs", "Bruh");
+// addTrack("Yeet Street", "Luke Oloffs", "Bruh");
 
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
-
+  const ID = generateUid();
+  library.playlists[ID] = {
+    id: ID,
+    name,
+    tracks: []
+  }
+  console.log(library['playlists'])
 }
+// addPlaylist("Workout");
 
 
 // STRETCH:
